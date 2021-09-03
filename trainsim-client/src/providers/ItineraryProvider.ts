@@ -5,7 +5,8 @@ import Place from "../models/Place";
 
 export default class ItineraryProvider {
     fetchItineraries(search: ItinerarySearch, callback: (itineraries: readonly Itinerary[]) => void) {
-        fetch("/api/query", { method: "POST", body: search.toJson() })
+        // fetch("http://localhost:8005/api/query", { method: "POST", body: search.toJson() })
+        fetch("/api/itinerary/query", { method: "POST", body: search.toJson() })
             .then(res => res.json())
             .then(res => res as ItineraryDto[])
             .then(res => res.map(fromItineraryDto))

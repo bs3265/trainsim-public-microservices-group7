@@ -9,7 +9,8 @@ export class StopProvider {
             return;
         }
 
-        fetch("/api/stops")
+        // fetch("http://localhost:8005/api/stops")
+        fetch("/api/itinerary/stops")
             .then(res => res.json())
             .then(res => res as StopDto[])
             .then(res => res.map(dto => new Stop(dto.id, dto.otpId, dto.name)))
