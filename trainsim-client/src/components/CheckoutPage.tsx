@@ -101,7 +101,7 @@ export default class CheckoutPage extends Component<CheckoutPageProps, CheckoutP
             "amount": 20.0,
             "phone": this.state.phone
         }  ;
-        const response = await axios.post('https://localhost:8000/api/order', orderDetail);
+        const response = await axios.post('localhost:8004/api/order', orderDetail);
         return response;
     }
 

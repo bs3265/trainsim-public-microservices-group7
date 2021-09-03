@@ -12,6 +12,7 @@
       <module>trainsim-api</module>
       <module>trainsim-client</module>
       <module>trainsim-stripe-service</module>
+      <module>trainsim-order</module>
   </modules>
 
   <build>

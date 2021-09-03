@@ -53,5 +53,22 @@ services:
             - 8003:80
         environment:
             MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1044
+    trainsim-order:
+        image: maven:3.8.1-openjdk-11
+        command: mvn exec:java -pl trainsim-order
+        working_dir: /source
+        volumes:
+            - .:/source
+            - .m2:/root/.m2
+        ports:
+            - 8004:80
+            - 1045:1044
+        environment:
+            MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1045
+            DB_URL: jdbc:postgresql://trainsim-db:5432/trainsim
+            DB_USER: user
+            DB_PASSWORD: password
+        depends_on:
+            - trainsim-db
             
 
