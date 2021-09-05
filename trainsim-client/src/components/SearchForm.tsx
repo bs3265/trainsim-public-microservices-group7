@@ -5,7 +5,9 @@ import ItineraryProvider from "../providers/ItineraryProvider";
 import DateField from "./DateField";
 import RangeDropdown from "./RangeDropdown";
 import SearchResultPage from "./SearchResultPage";
+import SearchResultPageRoundTrip from "./SearchResultPageRoundTrip";
 import StopDropdown from "./StopDropdown";
+import Itinerary from "../models/Itinerary";
 
 interface SearchFormState {
     source?: Stop;
@@ -38,7 +40,7 @@ export default class SearchForm extends React.Component<SearchFormProps, SearchF
             source: undefined,
             target: undefined,
             departDate: new Date(),
-            returnDate: addDays(new Date(), 3),
+            returnDate: addDays(new Date(), 1),
             travelers: 1,
             isRoundTrip: false,
             isLoading: false
@@ -53,15 +55,28 @@ export default class SearchForm extends React.Component<SearchFormProps, SearchF
 
         const { source, target, departDate, returnDate, travelers, isRoundTrip } = this.state;
 
-        const search = isRoundTrip ?
-            ItinerarySearch.roundTrip(source!, target!, departDate, returnDate, travelers) :
-            ItinerarySearch.oneWay(source!, target!, departDate, travelers);
+
+        const search = ItinerarySearch.oneWay(source!, target!, departDate, travelers);
+        const search2 = ItinerarySearch.oneWay(target!, source!, returnDate, travelers);
 
         const { setPage } = this.props;
 
-        this.itineraryProvider.fetchItineraries(search, res =>
-            setPage(<SearchResultPage search={search} itineraries={res} setPage={setPage} />
-        ));
+        if (isRoundTrip == true) {
+
+            this.itineraryProvider.fetchItineraries(search, res => 
+
+                this.itineraryProvider.fetchItineraries(search2, res1 =>
+                    setPage(<SearchResultPageRoundTrip search={search} search_return ={search2} itineraries={res} itineraries_return={res1} setPage={setPage} />
+                ))
+
+            )
+
+        } else {
+            this.itineraryProvider.fetchItineraries(search, res =>
+                setPage(<SearchResultPage search={search} itineraries={res} setPage={setPage} />
+            ));
+
+        }
     }
 
     isValidSearch() {
