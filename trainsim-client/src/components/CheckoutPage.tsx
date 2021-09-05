@@ -324,7 +324,7 @@ export default class CheckoutPage extends Component<CheckoutPageProps, CheckoutP
                 </div>
             </div>
             <NavButtonBar
-                onBack={() => setPage(<TravelerInfoPage search={search} itinerary={itinerary} setPage={setPage} />)}
+                onBack={() => setPage(<TravelerInfoPage search={search} search_return={search} itinerary_return={itinerary} roundTrip={false} itinerary={itinerary} setPage={setPage} />)}
                 // onNext={() => setPage(<ConfirmationPage search={search} itinerary={itinerary} setPage={setPage} />)} />
                 onNext={() => this.onSumbmit()} />
         </div>

@@ -11,7 +11,10 @@ import InputField from "./InputField"
 
 export interface TravelerInfoPageProps {
     search: ItinerarySearch;
+    search_return: ItinerarySearch;
     itinerary: Itinerary;
+    itinerary_return: Itinerary;
+    roundTrip : Boolean;
     setPage: (page: ReactElement) => void;
 }
 
