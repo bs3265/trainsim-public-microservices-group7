@@ -1,5 +1,4 @@
 package edu.drexel.trainsim.order.models;
-import edu.drexel.trainsim.itinerary.models.Stop;
 import java.util.Date;
 
 public class OrderDetail {

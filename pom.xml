@@ -9,9 +9,12 @@
   <packaging>pom</packaging>
 
   <modules>
-      <module>trainsim-api</module>
+      <!-- <module>trainsim-api</module> -->
       <module>trainsim-client</module>
       <module>trainsim-stripe-service</module>
+      <module>trainsim-order</module>
+      <module>trainsim-itinerary</module>
+      <module>trainsim-user</module>
   </modules>
 
   <build>

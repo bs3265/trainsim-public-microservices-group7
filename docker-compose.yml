@@ -7,26 +7,9 @@ services:
         ports:
             - 8000:80
         depends_on:
-            - trainsim-api
-    trainsim-api:
-        image: maven:3.8.1-openjdk-11
-        command: mvn exec:java -pl trainsim-api
-        working_dir: /source
-        volumes:
-            - .:/source
-            - .m2:/root/.m2
-        ports:
-            - 8001:80
-            - 1044:1044
-        environment:
-            MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1044
-            DB_URL: jdbc:postgresql://trainsim-db:5432/trainsim
-            DB_USER: user
-            DB_PASSWORD: password
-            OTP_URL: http://trainsim-planner:80
-        depends_on:
-            - trainsim-planner
-            - trainsim-db
+            - trainsim-itinerary
+            - trainsim-user
+            - trainsim-order
     trainsim-planner:
         build: trainsim-planner
         ports:
@@ -53,5 +36,60 @@ services:
             - 8003:80
         environment:
             MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1044
+    trainsim-order:
+        image: maven:3.8.1-openjdk-11
+        command: mvn exec:java -pl trainsim-order
+        working_dir: /source
+        volumes:
+            - .:/source
+            - .m2:/root/.m2
+        ports:
+            - 8004:80
+            - 1045:1044
+        environment:
+            MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1045
+            DB_URL: jdbc:postgresql://trainsim-db:5432/trainsim
+            DB_USER: user
+            DB_PASSWORD: password
+        depends_on:
+            - trainsim-db
+    trainsim-itinerary:
+        image: maven:3.8.1-openjdk-11
+        command: mvn exec:java -pl trainsim-itinerary
+        working_dir: /source
+        volumes:
+            - .:/source
+            - .m2:/root/.m2
+        ports:
+            - 8001:80
+            - 1046:1044
+        environment:
+            MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1046
+            DB_URL: jdbc:postgresql://trainsim-db:5432/trainsim
+            DB_USER: user
+            DB_PASSWORD: password
+            OTP_URL: http://trainsim-planner:80
+        depends_on:
+            - trainsim-planner
+            - trainsim-db
             
-
+    trainsim-user:
+        image: maven:3.8.1-openjdk-11
+        command: mvn exec:java -pl trainsim-user
+        working_dir: /source
+        volumes:
+            - .:/source
+            - .m2:/root/.m2
+        ports:
+            - 8007:80
+            - 1047:1044
+        environment:
+            MAVEN_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1047
+            DB_URL: jdbc:postgresql://trainsim-db:5432/trainsim
+            DB_USER: user
+            DB_PASSWORD: password
+            OTP_URL: http://trainsim-planner:80
+        depends_on:
+            - trainsim-db
+    
+        
