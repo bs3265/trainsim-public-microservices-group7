@@ -1,4 +1,55 @@
-# Train Sim - Group 7
+# Train Sim - Microservices - Group 7
+
+NOTE: Please see our notes on our progress and lessons learned here: https://github.com/bs3265/trainsim-public-group7
+
+### Architecture Documents
+
+We also have a separate set of design documents for the microservices version of our project in this repo:
+
+* Component diagram for the overall system 
+  * [Train Ticketing System Component Diagram - server side only](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Train%20Ticketing%20System%20Component%20Diagram%20MS.pdf)
+		
+* Sequence diagrams for each implemented user scenario 
+		
+  * [Launch Train Ticketing System](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%201%20Launch%20Train%20Ticketing%20System%20Sequence%20Diagram%20MS.pdf)
+			
+  * [User Login](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%202%20User%20Login.pdf)
+			
+  * [Search Tickets](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%203%20Search%20Tickets%20Sequence%20Diagram%20MS.pdf)
+			
+  * [Select Itinerary](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%204%20Select%20Itinerary%20Sequence%20Diagram%20MS.pdf)
+			
+  * [Enter Traveler Info](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%205%20Enter%20Traveler%20Info%20Sequence%20Diagram%20MS.pdf)
+			
+  * [Enter Payment Info and Checkout](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Use%20Case%206%20Enter%20Payment%20Info%20and%20Checkout%20Sequence%20Diagram%20MS.pdf)
+		
+		
+* Quality attribute utility tree
+		
+  * [Train Ticketing System QA Utility Tree](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Train%20Ticketing%20System%20QA%20Utility%20Tree.pdf)
+		
+* Tactics applied for the quality attributes specified in the utility tree
+					
+  * [Modifiability Tactics](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Modifiability%20Tactics.pdf)
+			
+  * [Security Tactics](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Security%20Tactics.pdf)
+			
+  * [Performance Tactics](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Performance%20Tactics.pdf)
+			
+  * [Usability Tactics](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Usability%20Tactics.pdf)
+		
+* Extras			
+  * [Quality Attribute Tactics Scenarios](https://github.com/bs3265/trainsim-public-microservices-group7/blob/master/architecture-documents/Quality%20Attributes%20Tactics%20Scenarios.docx)
+
+### Group Members
+
+| Name          | Role                                     |
+|---------------|------------------------------------------|
+| Grace Que     | Architect                                |
+| Courtney Finn | Developer                                |
+| Brian Song    | Developer                                |
+| Steve Hurlock | Tester, Admin                            |
+
 
 A work-in-progress application to simulate purchasing train tickets. This project is used for an assignment of SE 577 at Drexel University.
 
@@ -9,14 +60,7 @@ A work-in-progress application to simulate purchasing train tickets. This projec
 - [Database Schema](https://dbdiagram.io/d/60df44220b1d8a6d39649bfa)
 - [Template Repository](https://github.com/jlefever/trainsim-public)
 
-### Group Members
 
-| Name          | Role                                     |
-|---------------|------------------------------------------|
-| Grace Que     | Architect                                |
-| Courtney Finn | Developer                                |
-| Brian Song    | Developer                                |
-| Steve Hurlock | Tester, Admin                            |
 
 ## Getting Started
 
